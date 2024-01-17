@@ -1,9 +1,9 @@
 //Below shows the possible characters they can choose to include in their password when generated
 function generatePassword () {
   //Below are the special characters the user can input
-var character = "`", "~", "!","@", "#", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "{", "[", "}", "]", ":", ";", "<", ",", ">", ".", "/", "?";
+var specialCharacters = "`", "~", "!","@", "#", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "{", "[", "}", "]", ":", ";", "<", ",", ">", ".", "/", "?";
 //Below are the numbers the user can input
-var number = "1", "2", "3", "4", "5", "6", "7", "8", "9", "0";
+var numbers = "1", "2", "3", "4", "5", "6", "7", "8", "9", "0";
 //Below are the lowercase letters the user can input
 var lowercase = "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z";
 //Below are the uppercase letters the user can input
@@ -11,8 +11,8 @@ var uppercase = "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
 }
 
 //Below is the prompt for asking the user how many characters they would like the password to be
-charactersNumber = prompt("How many characters would you like your password to be. Must have a mininum of 8 and maximum of 128.");
-if (charactersNumber < 8 || charactersNumber > 128) {
+numberOfCharacters = prompt("How many characters would you like your password to be. Must have a mininum of 8 and maximum of 128.");
+if (numberOfCharacters < 8 || numberOfCharacters > 128) {
   return "Please choose between 8-128 characters.";
 }
 
@@ -56,6 +56,20 @@ else {
 if (containsSpecialCharacters === false && containsNumbers === false && containsLowercase === false && containsUppercase === false) {
   alert("Please choose at least one of of the criteria");
 };
+
+//Below is what happens when they enter password criteria
+if (containsSpecialCharacters) {
+  possibleCharacters = possibleCharacters.concat(specialCharacters);
+}
+if (containsNumbers) {
+  possibleCharacters = possibleCharacters.concat(numbers);
+}
+if (containsLowercase) {
+  possibleCharacters = possibleCharacters.concat(lowercase);
+}
+if (containsUppercase) {
+  possibleCharacters = possibleCharacters.concat(uppercase);
+}
 
 
 
