@@ -1,5 +1,4 @@
 # Password-Generator
-<<<<<<< HEAD
 
 ## Your Task
 
@@ -35,4 +34,3 @@ WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 ```
 =======
->>>>>>> e0eb0d67415b85f386e197e569bb60e6da084b34
