@@ -1,19 +1,21 @@
 //Below shows the possible characters they can choose to include in their password when generated
 function generatePassword () {
   //Below are the special characters the user can input
-var specialCharacters = "`", "~", "!","@", "#", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "{", "[", "}", "]", ":", ";", "<", ",", ">", ".", "/", "?";
+var specialCharacters = ["`", "~", "!","@", "#", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "{", "[", "}", "]", ":", ";", "<", ",", ">", ".", "/", "?"];
 //Below are the numbers the user can input
-var numbers = "1", "2", "3", "4", "5", "6", "7", "8", "9", "0";
+var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 //Below are the lowercase letters the user can input
-var lowercase = "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z";
+var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 //Below are the uppercase letters the user can input
-var uppercase = "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z";
+var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+//Below shows all the characters that are possible in between the brackets
+var characterPossibilities = [];
 }
 
 //Below is the prompt for asking the user how many characters they would like the password to be
 numberOfCharacters = prompt("How many characters would you like your password to be. Must have a mininum of 8 and maximum of 128.");
 if (numberOfCharacters < 8 || numberOfCharacters > 128) {
-  return "Please choose between 8-128 characters.";
+  alert("Please choose between 8-128 characters.");
 }
 
 //Below is asking if they user would like the password to contain special characters
@@ -59,32 +61,26 @@ if (containsSpecialCharacters === false && containsNumbers === false && contains
 
 //Below is what happens when they enter password criteria
 if (containsSpecialCharacters) {
-  possibleCharacters = possibleCharacters.concat(specialCharacters);
+  characterPossibilities = characterPossibilities.concat(specialCharacters);
 }
 if (containsNumbers) {
-  possibleCharacters = possibleCharacters.concat(numbers);
+  characterPossibilities = characterPossibilities.concat(numbers);
 }
 if (containsLowercase) {
-  possibleCharacters = possibleCharacters.concat(lowercase);
+  characterPossibilities = characterPossibilities.concat(lowercase);
 }
 if (containsUppercase) {
-  possibleCharacters = possibleCharacters.concat(uppercase);
+  characterPossibilities = characterPossibilities.concat(uppercase);
 }
 
 
 
+var generateBtn = document.querySelector("#generate");
 
-// // Assignment Code
-// var generateBtn = document.querySelector("#generate");
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
 
-// // Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
-
-//   passwordText.value = password;
-
-// }
-
-// // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
+  generateBtn.addEventListener("click", writePassword);
+}
