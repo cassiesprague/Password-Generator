@@ -73,14 +73,18 @@ if (containsUppercase) {
   characterPossibilities = characterPossibilities.concat(uppercase);
 }
 
-
-
-var generateBtn = document.querySelector("#generate");
-
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-  passwordText.value = password;
-
-  generateBtn.addEventListener("click", writePassword);
+function UserInput (newps) {
+  document.getElementById("password").textContent = newps;
 }
+// var copy = document.querySelector("#copy")
+
+
+// var generateBtn = document.querySelector("#generate");
+
+// function writePassword() {
+//   var password = generatePassword();
+//   var passwordText = document.querySelector("#password");
+//   passwordText.value = password;
+
+//   generateBtn.addEventListener("click", writePassword);
+// }
